@@ -119,6 +119,7 @@ const FeaturedProjectsCarousel = () => {
           )}
         </div>
       </div>
+      <br/>
       <div className="p-4 md:p-6 lg:p-8 space-y-6">
         <div>
           <h4 className="text-xl md:text-2xl font-bold font-mono-heading text-foreground mb-3">
