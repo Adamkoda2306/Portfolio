@@ -13,37 +13,6 @@ import CategoryFilter from './components/CategoryFilter';
 const Achievements = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
-  const metrics = [
-    {
-      icon: 'Award',
-      value: '12+',
-      label: 'Professional Certifications',
-      color: 'var(--color-primary)',
-      trend: '+3 this year'
-    },
-    {
-      icon: 'Mic',
-      value: '25+',
-      label: 'Conference Talks',
-      color: 'var(--color-accent)',
-      trend: '8 countries'
-    },
-    {
-      icon: 'GitBranch',
-      value: '150+',
-      label: 'Open Source Contributions',
-      color: 'var(--color-warning)',
-      trend: '50K+ stars'
-    },
-    {
-      icon: 'Users',
-      value: '10K+',
-      label: 'Developer Community',
-      color: 'var(--color-primary)',
-      trend: 'Stack Overflow'
-    }
-  ];
-
   const achievements = [
     {
       id: 1,
@@ -58,7 +27,7 @@ const Achievements = () => {
     },
     {
       id: 2,
-      type: 'speaking',
+      type: 'hackathon',
       title: 'Keynote: Microservices at Scale',
       description: 'Delivered keynote presentation on building resilient microservices architecture handling 100M+ daily requests with zero-downtime deployments.',
       date: '2025-09-20',
@@ -91,39 +60,6 @@ const Achievements = () => {
     },
     {
       id: 5,
-      type: 'writing',
-      title: 'Technical Blog: Database Optimization Strategies',
-      description: 'Published comprehensive guide on PostgreSQL query optimization techniques that reduced query execution time by 85% in production systems.',
-      date: '2025-06-18',
-      organization: 'Medium Engineering',
-      verified: true,
-      verificationUrl: 'https://medium.com/engineering/database-optimization',
-      metric: '50K+ views'
-    },
-    {
-      id: 6,
-      type: 'recognition',
-      title: 'GitHub Arctic Code Vault Contributor',
-      description: 'Code preserved in Arctic Code Vault as part of GitHub Archive Program, ensuring long-term preservation of open source contributions.',
-      date: '2025-05-12',
-      organization: 'GitHub',
-      verified: true,
-      verificationUrl: 'https://github.com/arctic-code-vault',
-      metric: 'Permanent archive'
-    },
-    {
-      id: 7,
-      type: 'speaking',
-      title: 'Workshop: Building Scalable APIs with GraphQL',
-      description: 'Conducted hands-on workshop teaching advanced GraphQL patterns including federation, caching strategies, and performance optimization.',
-      date: '2025-04-25',
-      organization: 'API World Conference',
-      verified: true,
-      verificationUrl: 'https://apiworld.co/workshops/2025',
-      metric: '150+ participants'
-    },
-    {
-      id: 8,
       type: 'certification',
       title: 'Kubernetes Certified Application Developer (CKAD)',
       description: 'Certification demonstrating proficiency in designing, building, and deploying cloud-native applications on Kubernetes.',
@@ -134,7 +70,7 @@ const Achievements = () => {
       metric: 'Valid until 2027'
     },
     {
-      id: 9,
+      id: 6,
       type: 'opensource',
       title: 'Maintainer - Redis Performance Tools',
       description: 'Created and maintain open source Redis monitoring and optimization toolkit used by Fortune 500 companies for production systems.',
@@ -145,8 +81,8 @@ const Achievements = () => {
       metric: '15K+ stars'
     },
     {
-      id: 10,
-      type: 'recognition',
+      id: 7,
+      type: 'hackathon',
       title: 'Stack Overflow Top 1% Contributor',
       description: 'Achieved top 1% ranking on Stack Overflow with 50K+ reputation points by providing high-quality answers to backend development questions.',
       date: '2025-01-20',
@@ -156,19 +92,8 @@ const Achievements = () => {
       metric: '50K+ reputation'
     },
     {
-      id: 11,
-      type: 'speaking',
-      title: 'Panel Discussion: Future of Backend Development',
-      description: 'Participated in expert panel discussing emerging trends in backend architecture, serverless computing, and edge computing technologies.',
-      date: '2024-12-08',
-      organization: 'Tech Leaders Summit',
-      verified: true,
-      verificationUrl: 'https://techleaders.com/panels/2024',
-      metric: '1K+ live viewers'
-    },
-    {
-      id: 12,
-      type: 'writing',
+      id: 8,
+      type: 'hackathon',
       title: 'eBook: Mastering Distributed Systems',
       description: 'Authored comprehensive technical eBook covering distributed system design patterns, consistency models, and real-world implementation strategies.',
       date: '2024-11-15',
@@ -191,10 +116,8 @@ const Achievements = () => {
   const categories = [
     { id: 'all', label: 'All Achievements', count: achievements?.length },
     { id: 'certification', label: 'Certifications', count: achievements?.filter(a => a?.type === 'certification')?.length },
-    { id: 'speaking', label: 'Speaking', count: achievements?.filter(a => a?.type === 'speaking')?.length },
     { id: 'opensource', label: 'Open Source', count: achievements?.filter(a => a?.type === 'opensource')?.length },
-    { id: 'writing', label: 'Technical Writing', count: achievements?.filter(a => a?.type === 'writing')?.length },
-    { id: 'recognition', label: 'Recognition', count: achievements?.filter(a => a?.type === 'recognition')?.length }
+    { id: 'hackathon', label: 'Hackathon\'s', count: achievements?.filter(a => a?.type === 'hackathon')?.length }
   ];
 
   const filteredAchievements = selectedCategory === 'all' 
@@ -228,12 +151,6 @@ const Achievements = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
-            {metrics?.map((metric, index) => (
-              <MetricCard key={index} metric={metric} />
-            ))}
-          </div>
-
           <div className="mb-8 md:mb-12">
             <ContributionGraph contributions={contributionData} />
           </div>
@@ -265,31 +182,6 @@ const Achievements = () => {
             </div>
           </div>
 
-          <TimelineSection achievements={achievements} />
-
-          <div className="mt-8 md:mt-12 metric-card">
-            <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6">
-              <div className="w-16 h-16 flex items-center justify-center bg-accent/10 rounded-lg flex-shrink-0">
-                <Icon name="Mail" size={32} color="var(--color-accent)" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-xl font-bold text-foreground font-mono-heading mb-2">
-                  Speaking & Collaboration Opportunities
-                </h3>
-                <p className="text-muted-foreground text-sm md:text-base mb-4">
-                  Available for conference talks, technical workshops, and open source collaboration. 
-                  Let's build something impactful together.
-                </p>
-                <a
-                  href="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-accent text-accent-foreground rounded-lg font-semibold font-mono-cta transition-smooth hover:bg-accent/90 hover:shadow-lg"
-                >
-                  <Icon name="Send" size={20} />
-                  <span>Get in Touch</span>
-                </a>
-              </div>
-            </div>
-          </div>
         </div>
       </main>
       <Footer />
