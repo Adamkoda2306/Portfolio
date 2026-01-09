@@ -6,19 +6,6 @@ import Button from '../../../components/ui/Button';
 const ProjectCard = ({ project, onViewDetails }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const getStatusColor = (status) => {
-    switch (status) {
-      case 'Production':
-        return 'bg-success/10 text-success';
-      case 'Development':
-        return 'bg-warning/10 text-warning';
-      case 'Archived':
-        return 'bg-muted text-muted-foreground';
-      default:
-        return 'bg-primary/10 text-primary';
-    }
-  };
-
   return (
     <div className="card-elevated bg-card rounded-lg border border-border overflow-hidden transition-smooth">
       <div className="relative h-48 md:h-56 lg:h-64 overflow-hidden bg-muted">
@@ -27,12 +14,6 @@ const ProjectCard = ({ project, onViewDetails }) => {
           alt={project?.imageAlt}
           className="w-full h-full object-cover"
         />
-        <div className="absolute top-4 right-4 flex gap-2">
-          <span className={`status-indicator ${getStatusColor(project?.status)}`}>
-            <span className="w-2 h-2 bg-current rounded-full pulse-glow"></span>
-            {project?.status}
-          </span>
-        </div>
       </div>
       <div className="p-4 md:p-6">
         <div className="flex items-start justify-between gap-4 mb-4">

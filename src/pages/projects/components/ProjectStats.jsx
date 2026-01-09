@@ -10,25 +10,11 @@ const ProjectStats = ({ totalProjects, activeProjects, technologies, totalCommit
       bgColor: 'bg-primary/10'
     },
     {
-      icon: 'Activity',
-      label: 'Active Projects',
-      value: activeProjects,
-      color: 'var(--color-success)',
-      bgColor: 'bg-success/10'
-    },
-    {
       icon: 'Code',
       label: 'Technologies',
       value: technologies,
       color: 'var(--color-accent)',
       bgColor: 'bg-accent/10'
-    },
-    {
-      icon: 'GitCommit',
-      label: 'Total Commits',
-      value: totalCommits,
-      color: 'var(--color-warning)',
-      bgColor: 'bg-warning/10'
     }
   ];
 
