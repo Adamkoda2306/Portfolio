@@ -42,9 +42,6 @@ const TechnologyEvolution = ({ techStack }) => {
                   <h4 className="text-base md:text-lg font-bold text-foreground font-mono-heading">
                     {tech?.name}
                   </h4>
-                  <p className="text-xs text-muted-foreground font-mono-code">
-                    {tech?.yearsUsed} years
-                  </p>
                 </div>
               </div>
             </div>
