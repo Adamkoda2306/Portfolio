@@ -1,12 +1,22 @@
 import { useState, useEffect } from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
+import ContributionGraph from './ContributionGraph';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   const [typedText, setTypedText] = useState('');
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
+
+  const contributionData = Array.from({ length: 365 }, (_, i) => {
+    const date = new Date();
+    date?.setDate(date?.getDate() - (364 - i));
+    return {
+      date: date?.toISOString()?.split('T')?.[0],
+      count: Math.floor(Math.random() * 25)
+    };
+  });
 
   const skills = [
     'Scalable Microservices',
@@ -44,12 +54,6 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-background/50 to-background"></div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
         <div className="text-center space-y-6 md:space-y-8 lg:space-y-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full border border-primary/20">
-            <span className="w-2 h-2 bg-success rounded-full pulse-glow"></span>
-            <span className="text-xs md:text-sm font-mono-cta text-primary uppercase tracking-wider">
-              Available for Opportunities
-            </span>
-          </div>
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-mono-heading text-foreground leading-tight">
             Building The Invisible
@@ -76,30 +80,15 @@ const HeroSection = () => {
                 View Projects
               </Button>
             </Link>
-            <Link to="/contact">
-              <Button variant="outline" size="lg" iconName="Mail" iconPosition="left">
-                Get In Touch
+            <a href="/assets/resume.pdf" download>
+              <Button variant="outline" size="lg" iconName="Download" iconPosition="left">
+                Download Resume
               </Button>
-            </Link>
+            </a>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 pt-8 md:pt-12 lg:pt-16">
-            {[
-              { value: '8+', label: 'Years Experience', icon: 'Calendar' },
-              { value: '50+', label: 'Projects Delivered', icon: 'Briefcase' },
-              { value: '99.9%', label: 'System Uptime', icon: 'Activity' },
-              { value: '15+', label: 'Technologies', icon: 'Code' }
-            ]?.map((stat, index) => (
-              <div key={index} className="metric-card text-center">
-                <div className="flex justify-center mb-3">
-                  <div className="w-10 h-10 md:w-12 md:h-12 flex items-center justify-center bg-primary/10 rounded-lg">
-                    <Icon name={stat?.icon} size={20} color="var(--color-primary)" />
-                  </div>
-                </div>
-                <div className="metric-value text-2xl md:text-3xl lg:text-4xl">{stat?.value}</div>
-                <div className="metric-label mt-2">{stat?.label}</div>
-              </div>
-            ))}
+          <div className="mb-8 md:mb-12">
+            <ContributionGraph contributions={contributionData} />
           </div>
         </div>
       </div>

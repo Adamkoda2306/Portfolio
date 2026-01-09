@@ -88,14 +88,7 @@ const FeaturedProjectsCarousel = () => {
         </Link>
       </div>
       <div className="relative">
-        <div className="aspect-video w-full overflow-hidden bg-muted">
-          <Image
-            src={currentProject?.image}
-            alt={currentProject?.imageAlt}
-            className="w-full h-full object-cover" />
-
-        </div>
-
+        <br/>
         <div className="absolute top-4 right-4 flex gap-2">
           <button
             onClick={handlePrevious}
