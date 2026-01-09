@@ -8,32 +8,28 @@ const QuickAccessSection = () => {
       description: "8+ years of backend engineering across fintech, e-commerce, and SaaS",
       icon: "Briefcase",
       color: "var(--color-primary)",
-      path: "/experience",
-      stats: "15+ Companies"
+      path: "/experience"
     },
     {
       title: "Project Portfolio",
       description: "50+ production systems handling millions of daily transactions",
       icon: "Code",
       color: "var(--color-accent)",
-      path: "/projects",
-      stats: "50+ Projects"
+      path: "/projects"
     },
     {
       title: "Achievements",
       description: "Certifications, speaking engagements, and technical contributions",
       icon: "Award",
       color: "var(--color-primary)",
-      path: "/achievements",
-      stats: "25+ Awards"
+      path: "/achievements"
     },
     {
       title: "Get In Touch",
       description: "Open for collaboration, consulting, and full-time opportunities",
       icon: "Mail",
       color: "var(--color-accent)",
-      path: "/contact",
-      stats: "24h Response"
+      path: "/contact"
     }
   ];
 
@@ -88,12 +84,6 @@ const QuickAccessSection = () => {
                   <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
                     {link?.description}
                   </p>
-                  <div className="inline-flex items-center gap-2 px-3 py-1 bg-muted rounded-lg">
-                    <Icon name="TrendingUp" size={14} color={link?.color} />
-                    <span className="text-xs font-mono-code" style={{ color: link?.color }}>
-                      {link?.stats}
-                    </span>
-                  </div>
                 </div>
               </div>
             </Link>

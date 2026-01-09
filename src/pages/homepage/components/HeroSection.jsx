@@ -9,15 +9,6 @@ const HeroSection = () => {
   const [currentSkillIndex, setCurrentSkillIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
-  const contributionData = Array.from({ length: 365 }, (_, i) => {
-    const date = new Date();
-    date?.setDate(date?.getDate() - (364 - i));
-    return {
-      date: date?.toISOString()?.split('T')?.[0],
-      count: Math.floor(Math.random() * 25)
-    };
-  });
-
   const skills = [
     'Scalable Microservices',
     'High-Performance APIs',
@@ -85,10 +76,6 @@ const HeroSection = () => {
                 Download Resume
               </Button>
             </a>
-          </div>
-
-          <div className="mb-8 md:mb-12">
-            <ContributionGraph contributions={contributionData} />
           </div>
         </div>
       </div>
