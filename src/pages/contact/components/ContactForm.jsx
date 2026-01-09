@@ -8,32 +8,14 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    inquiryType: '',
     subject: '',
     message: '',
-    preferredContact: '',
     urgency: ''
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const inquiryTypeOptions = [
-    { value: 'job', label: 'Job Opportunity', description: 'Full-time, contract, or consulting roles' },
-    { value: 'technical', label: 'Technical Discussion', description: 'Architecture, code review, or collaboration' },
-    { value: 'speaking', label: 'Speaking Engagement', description: 'Conference, workshop, or podcast' },
-    { value: 'mentorship', label: 'Mentorship Request', description: 'Career guidance or technical mentoring' },
-    { value: 'consulting', label: 'Consulting Inquiry', description: 'Project consultation or advisory' },
-    { value: 'other', label: 'Other', description: 'General inquiries' }
-  ];
-
-  const preferredContactOptions = [
-    { value: 'email', label: 'Email' },
-    { value: 'linkedin', label: 'LinkedIn Message' },
-    { value: 'call', label: 'Phone Call' },
-    { value: 'video', label: 'Video Conference' }
-  ];
 
   const urgencyOptions = [
     { value: 'low', label: 'Low Priority (1-2 weeks)' },
@@ -55,10 +37,6 @@ const ContactForm = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
-    if (!formData?.inquiryType) {
-      newErrors.inquiryType = 'Please select an inquiry type';
-    }
-
     if (!formData?.subject?.trim()) {
       newErrors.subject = 'Subject is required';
     }
@@ -67,10 +45,6 @@ const ContactForm = () => {
       newErrors.message = 'Message is required';
     } else if (formData?.message?.trim()?.length < 20) {
       newErrors.message = 'Message must be at least 20 characters';
-    }
-
-    if (!formData?.preferredContact) {
-      newErrors.preferredContact = 'Please select a preferred contact method';
     }
 
     if (!formData?.urgency) {
@@ -105,10 +79,8 @@ const ContactForm = () => {
     setFormData({
       name: '',
       email: '',
-      inquiryType: '',
       subject: '',
       message: '',
-      preferredContact: '',
       urgency: ''
     });
 
@@ -160,17 +132,6 @@ const ContactForm = () => {
           />
         </div>
 
-        <Select
-          label="Inquiry Type"
-          description="Select the category that best describes your inquiry"
-          placeholder="Choose inquiry type"
-          options={inquiryTypeOptions}
-          value={formData?.inquiryType}
-          onChange={(value) => handleChange('inquiryType', value)}
-          error={errors?.inquiryType}
-          required
-        />
-
         <Input
           label="Subject"
           type="text"
@@ -201,16 +162,7 @@ const ContactForm = () => {
           <p className="mt-1 text-xs text-muted-foreground">Minimum 20 characters</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Select
-            label="Preferred Contact Method"
-            placeholder="Choose contact method"
-            options={preferredContactOptions}
-            value={formData?.preferredContact}
-            onChange={(value) => handleChange('preferredContact', value)}
-            error={errors?.preferredContact}
-            required
-          />
+        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
 
           <Select
             label="Urgency Level"
@@ -242,10 +194,8 @@ const ContactForm = () => {
               setFormData({
                 name: '',
                 email: '',
-                inquiryType: '',
                 subject: '',
                 message: '',
-                preferredContact: '',
                 urgency: ''
               });
               setErrors({});
@@ -257,15 +207,6 @@ const ContactForm = () => {
           </Button>
         </div>
       </form>
-      <div className="mt-6 p-4 bg-muted/50 rounded-lg border border-border">
-        <div className="flex items-start gap-3">
-          <Icon name="Shield" size={20} color="var(--color-accent)" className="flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="text-sm text-foreground font-medium font-mono-cta">Privacy & Security</p>
-            <p className="text-xs text-muted-foreground mt-1">Your information is encrypted and never shared with third parties. All communications are handled securely.</p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };
