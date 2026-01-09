@@ -40,10 +40,6 @@ const ExperienceDetailModal = ({ experience, onClose }) => {
                 <span>{experience?.duration}</span>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <Icon name="MapPin" size={16} />
-              <span>{experience?.location}</span>
-            </div>
           </div>
 
           <div>
@@ -105,22 +101,6 @@ const ExperienceDetailModal = ({ experience, onClose }) => {
             </div>
           </div>
 
-          {experience?.testimonial && (
-            <div className="bg-muted rounded-lg p-4 md:p-6">
-              <div className="flex items-start gap-3 mb-3">
-                <Icon name="Quote" size={24} color="var(--color-primary)" />
-                <div>
-                  <p className="text-sm md:text-base text-foreground italic leading-relaxed mb-3">
-                    &ldquo;{experience?.testimonial?.quote}&rdquo;
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    <span className="font-medium text-primary">{experience?.testimonial?.author}</span>
-                    {' '}&mdash; {experience?.testimonial?.role}
-                  </p>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
