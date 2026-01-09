@@ -34,10 +34,6 @@ const Footer = () => {
               Building the invisible infrastructure that powers digital experiences. 
               Architecting scalable systems with precision and reliability.
             </p>
-            <div className="status-indicator online">
-              <span className="w-2 h-2 bg-success rounded-full pulse-glow"></span>
-              <span>Available for collaboration</span>
-            </div>
           </div>
 
           <div className="space-y-4">
@@ -78,18 +74,6 @@ const Footer = () => {
                   />
                 </a>
               ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="pt-8 border-t border-border">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-muted-foreground text-sm font-mono-code">
-              © {currentYear} DevPortfolio Pro. Engineered with precision.
-            </p>
-            <div className="flex items-center gap-2 text-muted-foreground text-sm">
-              <Icon name="Code" size={16} />
-              <span className="font-mono-code">Built with React + Tailwind CSS</span>
             </div>
           </div>
         </div>
