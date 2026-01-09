@@ -11,8 +11,7 @@ const ProjectDetailsModal = ({ project, onClose }) => {
   const tabs = [
     { id: 'overview', label: 'Overview', icon: 'FileText' },
     { id: 'architecture', label: 'Architecture', icon: 'Network' },
-    { id: 'performance', label: 'Performance', icon: 'Activity' },
-    { id: 'code', label: 'Code Samples', icon: 'Code' }
+    { id: 'performance', label: 'Performance', icon: 'Activity' }
   ];
 
   return (
@@ -51,7 +50,7 @@ const ProjectDetailsModal = ({ project, onClose }) => {
           </div>
         </div>
 
-        <div className="flex-1 overflow-y-auto p-4 md:p-6">
+        <div className="h-[28rem] md:h-[32rem] lg:h-[36rem] overflow-y-auto p-4 md:p-6">
           {activeTab === 'overview' && (
             <div className="space-y-6">
               <div className="relative h-64 md:h-80 lg:h-96 overflow-hidden rounded-lg">
@@ -131,6 +130,29 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                     </span>
                   ))}
                 </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button
+                  variant="outline"
+                  fullWidth
+                  iconName="Github"
+                  iconPosition="left"
+                  onClick={() => window.open(project?.githubUrl, '_blank')}
+                >
+                  View on GitHub
+                </Button>
+                {project?.liveDemo && (
+                  <Button
+                    variant="default"
+                    fullWidth
+                    iconName="ExternalLink"
+                    iconPosition="right"
+                    onClick={() => window.open(project?.liveDemo, '_blank')}
+                  >
+                    Live Demo
+                  </Button>
+                )}
               </div>
             </div>
           )}
@@ -234,58 +256,6 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                 <div className="text-4xl md:text-5xl font-bold text-success font-mono-heading">
                   {project?.uptime}
                 </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'code' && (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground font-mono-heading mb-3">
-                  Code Samples
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
-                  Representative code snippets demonstrating implementation patterns and best practices.
-                </p>
-              </div>
-
-              {project?.codeSamples?.map((sample, index) => (
-                <div key={index} className="code-block">
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-sm text-muted-foreground font-mono-cta uppercase tracking-wider">
-                      {sample?.title}
-                    </span>
-                    <span className="px-2 py-1 bg-accent/10 text-accent text-xs font-mono-code rounded">
-                      {sample?.language}
-                    </span>
-                  </div>
-                  <pre className="text-xs md:text-sm text-accent font-mono-code overflow-x-auto whitespace-pre-wrap">
-                    {sample?.code}
-                  </pre>
-                </div>
-              ))}
-
-              <div className="flex flex-col sm:flex-row gap-3">
-                <Button
-                  variant="outline"
-                  fullWidth
-                  iconName="Github"
-                  iconPosition="left"
-                  onClick={() => window.open(project?.githubUrl, '_blank')}
-                >
-                  View on GitHub
-                </Button>
-                {project?.liveDemo && (
-                  <Button
-                    variant="default"
-                    fullWidth
-                    iconName="ExternalLink"
-                    iconPosition="right"
-                    onClick={() => window.open(project?.liveDemo, '_blank')}
-                  >
-                    Live Demo
-                  </Button>
-                )}
               </div>
             </div>
           )}

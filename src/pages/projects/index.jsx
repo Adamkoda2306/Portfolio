@@ -456,18 +456,6 @@ const Projects = () => {
             </p>
           </div>
 
-          <ProjectStats
-            totalProjects={totalProjects}
-            activeProjects={activeProjects}
-            technologies={uniqueTechnologies}
-            totalCommits={totalCommits} />
-
-
-          <ProjectFilters
-            onFilterChange={handleFilterChange}
-            onSearchChange={handleSearchChange}
-            onReset={handleReset} />
-
 
           {filteredProjects?.length === 0 ?
           <div className="text-center py-12 md:py-16">
