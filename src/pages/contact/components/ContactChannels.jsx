@@ -11,7 +11,6 @@ const ContactChannels = () => {
       description: 'Best for detailed inquiries and formal communications',
       color: 'primary',
       action: 'mailto:contact@devportfolio.pro',
-      responseTime: '< 24 hours',
       preferred: true
     },
     {
@@ -22,7 +21,6 @@ const ContactChannels = () => {
       description: 'Professional networking and job opportunities',
       color: 'accent',
       action: 'https://linkedin.com',
-      responseTime: '< 48 hours',
       preferred: true
     },
     {
@@ -33,42 +31,8 @@ const ContactChannels = () => {
       description: 'Technical discussions and code collaboration',
       color: 'primary',
       action: 'https://github.com',
-      responseTime: '< 72 hours',
       preferred: false
     },
-    {
-      id: 4,
-      name: 'Twitter',
-      icon: 'Twitter',
-      value: '@devportfolio',
-      description: 'Quick updates and tech community engagement',
-      color: 'accent',
-      action: 'https://twitter.com',
-      responseTime: 'Variable',
-      preferred: false
-    },
-    {
-      id: 5,
-      name: 'Phone',
-      icon: 'Phone',
-      value: '+1 (555) 123-4567',
-      description: 'Urgent matters only, by appointment',
-      color: 'warning',
-      action: 'tel:+15551234567',
-      responseTime: 'By appointment',
-      preferred: false
-    },
-    {
-      id: 6,
-      name: 'Calendar',
-      icon: 'Calendar',
-      value: 'Schedule a meeting',
-      description: 'Book a video call for in-depth discussions',
-      color: 'success',
-      action: '#',
-      responseTime: 'Scheduled',
-      preferred: true
-    }
   ];
 
   const handleContactClick = (action, name) => {
@@ -127,53 +91,11 @@ const ContactChannels = () => {
                     >
                       Connect
                     </Button>
-                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                      <Icon name="Clock" size={14} />
-                      <span className="font-mono-code">Response: {method?.responseTime}</span>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-      </div>
-      {/* Quick Contact Tips */}
-      <div className="bg-card rounded-lg border border-border p-6">
-        <div className="flex items-center gap-3 mb-4">
-          <div className="w-10 h-10 flex items-center justify-center bg-accent/10 rounded-lg">
-            <Icon name="Lightbulb" size={20} color="var(--color-accent)" />
-          </div>
-          <h3 className="text-lg font-bold text-foreground font-mono-heading">Contact Tips</h3>
-        </div>
-
-        <div className="space-y-3">
-          <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-            <Icon name="CheckCircle" size={16} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-foreground">Include specific details about your project or opportunity for faster response</p>
-          </div>
-          <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-            <Icon name="CheckCircle" size={16} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-foreground">Mention your timeline and budget expectations for consulting inquiries</p>
-          </div>
-          <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-            <Icon name="CheckCircle" size={16} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-foreground">For technical discussions, share relevant code repositories or documentation</p>
-          </div>
-          <div className="flex items-start gap-3 p-3 bg-muted/50 rounded-lg">
-            <Icon name="CheckCircle" size={16} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
-            <p className="text-sm text-foreground">Use calendar booking for guaranteed meeting slots during working hours</p>
-          </div>
-        </div>
-      </div>
-      {/* Emergency Contact */}
-      <div className="bg-error/10 border border-error/20 rounded-lg p-4">
-        <div className="flex items-start gap-3">
-          <Icon name="AlertTriangle" size={20} color="var(--color-error)" className="flex-shrink-0 mt-0.5" />
-          <div>
-            <p className="text-sm font-medium text-error font-mono-cta">Urgent Technical Issues</p>
-            <p className="text-xs text-error/80 mt-1">For critical production issues with existing projects, use phone contact. Please note this is reserved for emergency situations only.</p>
-          </div>
         </div>
       </div>
     </div>
