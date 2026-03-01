@@ -10,11 +10,11 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const skills = [
-    'Scalable Microservices',
-    'High-Performance APIs',
-    'Distributed Systems',
-    'Cloud Architecture',
-    'Database Optimization'
+    'Backend Development',
+    'Node.js & REST APIs',
+    'Databases & Cloud Basics',
+    'Docker & Version Control',
+    'Machine Learning & Computer Vision'
   ];
 
   useEffect(() => {
@@ -47,9 +47,9 @@ const HeroSection = () => {
         <div className="text-center space-y-6 md:space-y-8 lg:space-y-10">
 
           <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold font-mono-heading text-foreground leading-tight">
-            Building The Invisible
+            Learning and Building
             <br />
-            <span className="text-primary">Infrastructure</span>
+            <span className="text-primary">Practical Systems</span>
           </h1>
 
           <div className="h-16 md:h-20 lg:h-24 flex items-center justify-center">
@@ -61,8 +61,11 @@ const HeroSection = () => {
           </div>
 
           <p className="max-w-3xl mx-auto text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed px-4">
-            Senior Backend Engineer specializing in architecting scalable systems that power millions of users. 
-            Transforming complex business requirements into elegant, maintainable code.
+            Electronics and Communication Engineering undergraduate with an interest in 
+            backend development, cloud-based applications, and applied machine learning. 
+            Actively learning by building projects involving APIs, databases, and 
+            computer vision, and exploring how software systems integrate with real-world 
+            hardware and data.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 md:pt-6 lg:pt-8">
