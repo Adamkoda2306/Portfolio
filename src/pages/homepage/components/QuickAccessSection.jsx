@@ -4,14 +4,14 @@ import Icon from '../../../components/AppIcon';
 const QuickAccessSection = () => {
   const quickLinks = [
     {
-      title: "Experience Timeline",
+      title: "Experience",
       description: "Backend & Systems engineering focused on microservices and IoT integration",
       icon: "Briefcase",
       color: "var(--color-primary)",
       path: "/experience"
     },
     {
-      title: "Project Portfolio",
+      title: "Project's",
       description: "Full-stack applications, RL simulations, and published npm utilities",
       icon: "Code",
       color: "var(--color-accent)",
