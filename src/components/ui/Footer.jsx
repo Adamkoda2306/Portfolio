@@ -5,10 +5,9 @@ const Footer = () => {
   const currentYear = new Date()?.getFullYear();
 
   const socialLinks = [
-    { name: 'GitHub', icon: 'Github', url: 'https://github.com', ariaLabel: 'Visit GitHub profile' },
-    { name: 'LinkedIn', icon: 'Linkedin', url: 'https://linkedin.com', ariaLabel: 'Visit LinkedIn profile' },
-    { name: 'Twitter', icon: 'Twitter', url: 'https://twitter.com', ariaLabel: 'Visit Twitter profile' },
-    { name: 'Email', icon: 'Mail', url: 'mailto:contact@devportfolio.pro', ariaLabel: 'Send email' },
+    { name: 'GitHub', icon: 'Github', url: 'https://github.com/Adamkoda2306', ariaLabel: 'Visit GitHub profile' },
+    { name: 'LinkedIn', icon: 'Linkedin', url: 'https://www.linkedin.com/in/adam-koda-5a8160294/', ariaLabel: 'Visit LinkedIn profile' },
+    { name: 'Email', icon: 'Mail', url: 'mailto:adam.koda2995@gmail.com', ariaLabel: 'Send email' },
   ];
 
   const footerLinks = [
@@ -28,11 +27,10 @@ const Footer = () => {
               <div className="w-8 h-8 flex items-center justify-center bg-primary/10 rounded-lg">
                 <Icon name="Terminal" size={20} color="var(--color-primary)" />
               </div>
-              <span>DevPortfolio Pro</span>
+              <span>Koda Adam</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Building the invisible infrastructure that powers digital experiences. 
-              Architecting scalable systems with precision and reliability.
+              B.Tech ECE student at IIIT Sri City specializing in backend microservices and autonomous systems. Dedicated to developing robust, end-to-end digital and physical solutions.
             </p>
           </div>
 
