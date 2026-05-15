@@ -5,8 +5,6 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import Icon from '../../components/AppIcon';
 import ExperienceTimeline from './components/ExperienceTimeline';
 import TechnologyEvolution from './components/TechnologyEvolution';
-import ArchitectureDiagram from './components/ArchitectureDiagram';
-import TeamTestimonials from './components/TeamTestimonials';
 import ExperienceDetailModal from './components/ExperienceDetailModal';
 
 const Experience = () => {
@@ -16,168 +14,130 @@ const Experience = () => {
   const experiences = [
   {
     id: 1,
-    role: "Senior Backend Architect",
-    company: "TechScale Solutions",
-    duration: "Jan 2023 - Present",
-    location: "San Francisco, CA (Remote)",
+    role: "Part-Time Backend Developer",
+    company: "SensorSync Innovations",
+    duration: "Sep 2025 - Mar 2026",
+    location: "Sri City, India",
     icon: "Building2",
-    description: "Leading backend architecture for a high-traffic SaaS platform serving 2M+ users. Designed and implemented microservices architecture that improved system reliability and reduced deployment time by 60%.",
-    fullDescription: "Spearheading the complete architectural transformation of a monolithic application into a distributed microservices ecosystem. Led a team of 8 backend engineers in designing scalable solutions that handle 50M+ API requests daily. Implemented event-driven architecture using Apache Kafka, reducing inter-service latency by 75%. Established comprehensive monitoring and observability practices using Prometheus and Grafana, achieving 99.95% uptime. Mentored junior developers and conducted architecture review sessions, fostering a culture of technical excellence and continuous improvement.",
-    technologies: ["Node.js", "Python", "PostgreSQL", "Redis", "Docker", "Kubernetes", "AWS", "Apache Kafka", "GraphQL", "TypeScript", "MongoDB", "Elasticsearch"],
+    description: "Re-engineering monolithic systems into TypeScript microservices, achieving a 90% reduction in request latency and 3x throughput improvement.",
+    fullDescription: "Currently leading the architectural transition from a monolithic Node.js backend to a scalable TypeScript-based microservices ecosystem. Responsible for optimizing system performance under heavy load, validated through rigorous k6 load testing. Managing containerized deployments using Docker and Nginx on GCP, while implementing critical third-party integrations for communications and cloud storage. My focus is on ensuring high availability and seamless scalability for growing traffic demands.",
+    technologies: ["TypeScript", "Node.js", "MongoDB", "Docker", "Docker Compose", "Nginx", "GCP", "Cloudinary", "Twilio"],
     metrics: [
-    { value: "99.95%", label: "Uptime" },
-    { value: "50M+", label: "Daily Requests" },
-    { value: "60%", label: "Deploy Time ↓" }],
-
+      { value: "90% ↓", label: "Latency" },
+      { value: "3x", label: "Throughput ↑" },
+      { value: "100%", label: "Scalability" }
+    ],
     achievements: [
-    "Architected microservices platform handling 50M+ daily API requests with 99.95% uptime",
-    "Reduced deployment time from 2 hours to 45 minutes through CI/CD pipeline optimization",
-    "Implemented caching strategy that decreased database load by 70% and improved response times by 85%",
-    "Led migration from monolithic architecture to microservices, enabling independent team scaling",
-    "Established comprehensive API documentation and developer onboarding program",
-    "Reduced infrastructure costs by 40% through resource optimization and auto-scaling implementation"],
+      "Successfully re-engineered a monolithic Node.js backend into a microservices architecture using TypeScript",
+      "Reduced average request latency by over 90% and tripled system throughput",
+      "Implemented automated load testing using k6 to validate and ensure system performance under pressure",
+      "Orchestrated multi-container environments using Docker Compose for consistent local and production parity",
+      "Configured Nginx as a reverse proxy to enhance system security and load distribution",
+      "Resigned from part-time position in May 2026 to focus on upcoming career milestones"
+    ],
   },
   {
     id: 2,
-    role: "Lead Backend Engineer",
-    company: "DataFlow Systems",
-    duration: "Mar 2021 - Dec 2022",
-    location: "Austin, TX",
+    role: "Backend Developer Intern",
+    company: "SensorSync Innovations",
+    duration: "May 2025 - Jul 2025",
+    location: "Sri City, India",
     icon: "Database",
-    description: "Built real-time data processing pipeline handling 10TB+ daily data ingestion. Optimized database queries reducing average response time from 2.5s to 180ms.",
-    fullDescription: "Designed and implemented a distributed data processing system capable of ingesting and processing 10TB+ of data daily from multiple sources. Led the development of a real-time analytics engine that provided sub-second query responses for complex aggregations. Implemented data partitioning and sharding strategies that improved query performance by 93%. Collaborated with data science team to build ML model serving infrastructure with 99.9% availability. Established data quality monitoring and alerting systems that reduced data inconsistencies by 85%.",
-    technologies: ["Python", "Apache Spark", "PostgreSQL", "Redis", "Airflow", "Docker", "AWS", "Kafka", "Cassandra", "FastAPI"],
+    description: "Designed ride-booking services and architected a road-quality scoring pipeline with 93.6% accuracy using YOLOv8 and ML.",
+    fullDescription: "Designed and deployed core backend services for ride booking, user authentication, and real-time notifications. A key highlight was architecting a complex road-quality scoring pipeline. This involved integrating team-developed YOLOv8 computer vision outputs (detecting potholes and lane markings) with a custom Machine Learning score prediction model. This pipeline achieved 93.6% accuracy, enabling automated, real-time assessment of field data for road maintenance teams.",
+    technologies: ["Node.js", "Express.js", "MongoDB", "Python", "YOLOv8", "OpenCV", "Jetson Nano", "Firebase FCM", "Render"],
     metrics: [
-    { value: "10TB+", label: "Daily Data" },
-    { value: "93%", label: "Query Speed ↑" },
-    { value: "180ms", label: "Avg Response" }],
-
+      { value: "93.6%", label: "ML Accuracy" },
+      { value: "Real-time", label: "Processing" },
+      { value: "24/7", label: "Monitoring" }
+    ],
     achievements: [
-    "Built distributed data pipeline processing 10TB+ daily with 99.9% reliability",
-    "Optimized database queries reducing average response time from 2.5s to 180ms (93% improvement)",
-    "Implemented real-time analytics engine serving 500+ concurrent users",
-    "Designed data partitioning strategy that improved query performance by 10x",
-    "Reduced data processing costs by 35% through efficient resource utilization",
-    "Established data quality framework that decreased inconsistencies by 85%"],
-  },
-  {
-    id: 3,
-    role: "Backend Developer",
-    company: "CloudNative Inc",
-    duration: "Jun 2019 - Feb 2021",
-    location: "Seattle, WA",
-    icon: "Cloud",
-    description: "Developed RESTful APIs and GraphQL endpoints for cloud-native applications. Implemented authentication and authorization systems serving 500K+ users.",
-    fullDescription: "Contributed to the development of a multi-tenant SaaS platform serving enterprise clients. Built secure RESTful APIs and GraphQL endpoints with comprehensive authentication and authorization mechanisms. Implemented OAuth 2.0 and JWT-based authentication systems handling 500K+ active users. Optimized API performance through strategic caching and database indexing, reducing average response times by 65%. Collaborated with frontend teams to design efficient data fetching strategies and minimize API calls.",
-    technologies: ["Node.js", "Express", "PostgreSQL", "MongoDB", "Redis", "Docker", "AWS", "GraphQL", "Jest", "TypeScript"],
-    metrics: [
-    { value: "500K+", label: "Active Users" },
-    { value: "65%", label: "Response ↓" },
-    { value: "99.8%", label: "API Uptime" }],
-
-    achievements: [
-    "Developed secure authentication system serving 500K+ users with zero security breaches",
-    "Built RESTful APIs and GraphQL endpoints with 99.8% uptime",
-    "Reduced API response times by 65% through caching and optimization",
-    "Implemented comprehensive API testing suite with 95% code coverage",
-    "Designed rate limiting and throttling mechanisms preventing abuse",
-    "Contributed to open-source projects improving team\'s technical reputation"],
-  },
-  {
-    id: 4,
-    role: "Junior Backend Developer",
-    company: "StartupHub Technologies",
-    duration: "Aug 2017 - May 2019",
-    location: "Boston, MA",
-    icon: "Rocket",
-    description: "Started career building REST APIs and database schemas. Learned distributed systems and cloud architecture while contributing to core product features.",
-    fullDescription: "Began professional journey in a fast-paced startup environment, rapidly learning backend development best practices. Built REST APIs for core product features and designed normalized database schemas. Gained hands-on experience with cloud infrastructure, containerization, and CI/CD pipelines. Participated in code reviews and pair programming sessions that accelerated technical growth. Contributed to database migration projects and performance optimization initiatives.",
-    technologies: ["Python", "Django", "PostgreSQL", "Redis", "Docker", "AWS", "Git", "Linux", "Nginx"],
-    metrics: [
-    { value: "15+", label: "Features" },
-    { value: "50%", label: "Load Time ↓" },
-    { value: "100%", label: "Test Coverage" }],
-
-    achievements: [
-    "Developed 15+ core product features from requirements to production deployment",
-    "Reduced page load times by 50% through backend optimization",
-    "Implemented automated testing achieving 100% coverage for critical paths",
-    "Participated in database migration from MySQL to PostgreSQL",
-    "Contributed to API documentation and developer onboarding materials",
-    "Received \'Rising Star\' award for exceptional learning and contribution"],
-  }];
+      "Architected an end-to-end road-quality scoring pipeline integrating computer vision and machine learning",
+      "Achieved 93.6% accuracy in pothole and lane detection scoring for real-time assessment",
+      "Deployed scalable Node.js services for various type's of ride-booking",
+      "Integrated Jetson Nano for edge-based computer vision processing in the field",
+      "Leveraged Firebase FCM and Twilio to build a robust user notification and authentication system"
+    ],
+  }
+];
 
 
   const techStack = [
-  {
-    id: 1,
-    name: "Node.js",
-    category: "backend",
-    icon: "Server",
-    projectsUsed: 12
-  },
-  {
-    id: 2,
-    name: "Python",
-    category: "backend",
-    icon: "Code",
-    projectsUsed: 15
-  },
-  {
-    id: 3,
-    name: "PostgreSQL",
-    category: "database",
-    icon: "Database",
-    projectsUsed: 18
-  },
-  {
-    id: 4,
-    name: "Redis",
-    category: "database",
-    icon: "Zap",
-    projectsUsed: 10
-  },
-  {
-    id: 5,
-    name: "Docker",
-    category: "devops",
-    icon: "Package",
-    projectsUsed: 20
-  },
-  {
-    id: 6,
-    name: "Kubernetes",
-    category: "devops",
-    icon: "Boxes",
-    projectsUsed: 8
-  },
-  {
-    id: 7,
-    name: "AWS",
-    category: "cloud",
-    icon: "Cloud",
-    projectsUsed: 16
-  },
-  {
-    id: 8,
-    name: "GraphQL",
-    category: "api",
-    icon: "Network",
-    projectsUsed: 7
-  },
-  {
-    id: 9,
-    name: "MongoDB",
-    category: "database",
-    icon: "Database",
-    projectsUsed: 11
-  }];
+  // --- BACKEND & APIS (13) ---
+  { id: 1, name: "Node.js", category: "backend", icon: "Server", projectsUsed: 15 },
+  { id: 2, name: "TypeScript", category: "backend", icon: "Code", projectsUsed: 10 },
+  { id: 3, name: "Express.js", category: "backend", icon: "Zap", projectsUsed: 12 },
+  { id: 4, name: "Flask", category: "backend", icon: "Wind", projectsUsed: 6 },
+  { id: 5, name: "REST APIs", category: "backend", icon: "Network", projectsUsed: 18 },
+  { id: 6, name: "Firebase (Auth/DB/FCM)", category: "backend", icon: "Flame", projectsUsed: 10 },
+  { id: 7, name: "Twilio API", category: "backend", icon: "MessageSquare", projectsUsed: 4 },
+  { id: 8, name: "Cloudinary", category: "backend", icon: "Image", projectsUsed: 5 },
+  { id: 9, name: "Postman API", category: "backend", icon: "CheckCircle", projectsUsed: 15 },
+  { id: 10, name: "Nginx", category: "backend", icon: "Shield", projectsUsed: 4 },
+  { id: 11, name: "Bash", category: "backend", icon: "Terminal", projectsUsed: 12 },
+  { id: 12, name: "Back-End Web Development", category: "backend", icon: "Globe", projectsUsed: 15 },
+  { id: 13, name: "Application Programming Interfaces", category: "backend", icon: "Link", projectsUsed: 18 },
+
+  // --- HARDWARE & EMBEDDED SYSTEMS (15) ---
+  { id: 14, name: "Embedded Systems", category: "hardware", icon: "Cpu", projectsUsed: 9 },
+  { id: 15, name: "Microcontrollers (8051)", category: "hardware", icon: "Microchip", projectsUsed: 11 },
+  { id: 16, name: "Microprocessors (8086)", category: "hardware", icon: "Cpu", projectsUsed: 8 },
+  { id: 17, name: "Raspberry Pi", category: "hardware", icon: "HardDrive", projectsUsed: 6 },
+  { id: 18, name: "Arduino", category: "hardware", icon: "Zap", projectsUsed: 12 },
+  { id: 19, name: "NodeMCU", category: "hardware", icon: "Wifi", projectsUsed: 7 },
+  { id: 20, name: "Verilog", category: "hardware", icon: "Layers", projectsUsed: 5 },
+  { id: 21, name: "Digital Circuit Design", category: "hardware", icon: "Activity", projectsUsed: 10 },
+  { id: 22, name: "Analog Circuits", category: "hardware", icon: "Wind", projectsUsed: 8 },
+  { id: 23, name: "Power Electronics", category: "hardware", icon: "BatteryCharging", projectsUsed: 6 },
+  { id: 24, name: "Sensors Integration", category: "hardware", icon: "Radio", projectsUsed: 9 },
+  { id: 25, name: "Jetson Nano", category: "hardware", icon: "Monitor", projectsUsed: 4 },
+  { id: 26, name: "Electronics", category: "hardware", icon: "Zap", projectsUsed: 25 },
+  { id: 27, name: "Digital Twins", category: "hardware", icon: "Copy", projectsUsed: 3 },
+  { id: 28, name: "Internet of Things (IoT)", category: "hardware", icon: "Globe", projectsUsed: 15 },
+
+  // --- AI, MACHINE LEARNING & COMPUTER VISION (7) ---
+  { id: 29, name: "Machine Learning", category: "ai", icon: "Brain", projectsUsed: 10 },
+  { id: 30, name: "Deep Learning", category: "ai", icon: "Target", projectsUsed: 6 },
+  { id: 31, name: "Computer Vision", category: "ai", icon: "Eye", projectsUsed: 8 },
+  { id: 32, name: "YOLOv8", category: "ai", icon: "Box", projectsUsed: 4 },
+  { id: 33, name: "Intelligent & Autonomous Systems", category: "ai", icon: "Navigation", projectsUsed: 5 },
+  { id: 34, name: "Speech Processing", category: "ai", icon: "Mic", projectsUsed: 4 },
+  { id: 35, name: "Speech Recognition", category: "ai", icon: "Volume2", projectsUsed: 3 },
+
+  // --- LANGUAGES & CS FUNDAMENTALS (8) ---
+  { id: 36, name: "C", category: "languages", icon: "Code", projectsUsed: 20 },
+  { id: 37, name: "C++", category: "languages", icon: "Code", projectsUsed: 25 },
+  { id: 38, name: "Python", category: "languages", icon: "Code", projectsUsed: 22 },
+  { id: 39, name: "JavaScript", category: "languages", icon: "Code", projectsUsed: 15 },
+  { id: 40, name: "DSA", category: "fundamentals", icon: "Binary", projectsUsed: 50 },
+  { id: 41, name: "Object-Oriented Programming (OOP)", category: "fundamentals", icon: "Box", projectsUsed: 30 },
+  { id: 42, name: "Problem Solving", category: "fundamentals", icon: "Lightbulb", projectsUsed: 40 },
+  { id: 43, name: "Assembly Language", category: "languages", icon: "FileCode", projectsUsed: 6 },
+
+  // --- DATABASES & DEVOPS (6) ---
+  { id: 44, name: "MongoDB", category: "database", icon: "Database", projectsUsed: 12 },
+  { id: 45, name: "Docker", category: "devops", icon: "Package", projectsUsed: 8 },
+  { id: 46, name: "Git", category: "devops", icon: "GitBranch", projectsUsed: 35 },
+  { id: 47, name: "GitHub", category: "devops", icon: "Github", projectsUsed: 40 },
+  { id: 48, name: "Google Cloud Platform (GCP)", category: "cloud", icon: "Cloud", projectsUsed: 6 },
+  { id: 49, name: "Computer Networking", category: "infrastructure", icon: "Share2", projectsUsed: 10 },
+
+  // --- FRONTEND & MOBILE (4) ---
+  { id: 50, name: "Flutter", category: "frontend", icon: "Smartphone", projectsUsed: 8 },
+  { id: 51, name: "Android Development", category: "frontend", icon: "Smartphone", projectsUsed: 5 },
+  { id: 52, name: "Android Studio", category: "frontend", icon: "Smartphone", projectsUsed: 5 },
+  { id: 53, name: "HTML", category: "frontend", icon: "FileCode", projectsUsed: 12 },
+
+  // --- SIGNAL PROCESSING (2) ---
+  { id: 54, name: "Digital Signal Processing", category: "signal", icon: "Activity", projectsUsed: 5 },
+  { id: 55, name: "Speech Recognition", category: "signal", icon: "Mic", projectsUsed: 4 }
+];
 
 
 
   const tabs = [
-  { id: 'timeline', label: 'Experience Timeline', icon: 'Clock' },
-  { id: 'technology', label: 'Technology Evolution', icon: 'Code' }];
+  { id: 'timeline', label: 'Experience', icon: 'Clock' },
+  { id: 'technology', label: 'Technologies', icon: 'Code' }];
 
 
   return (
@@ -194,7 +154,9 @@ const Experience = () => {
                   Technical Journey
                 </h1>
                 <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-3xl">
-                  A chronological showcase of architectural decisions, system designs, and measurable business impact across {experiences?.length} years of backend engineering excellence.
+                  A chronological showcase of architectural decisions, system designs, and measurable 
+  impact across my journey in backend engineering, autonomous systems, and 
+  IoT infrastructure.
                 </p>
               </div>
             </div>

@@ -45,13 +45,6 @@ const TechnologyEvolution = ({ techStack }) => {
                 </div>
               </div>
             </div>
-
-            <div className="space-y-3">
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Icon name="Briefcase" size={14} />
-                <span>{tech?.projectsUsed} projects</span>
-              </div>
-            </div>
           </div>
         ))}
       </div>
