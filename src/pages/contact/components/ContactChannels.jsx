@@ -7,30 +7,30 @@ const ContactChannels = () => {
       id: 1,
       name: 'Email',
       icon: 'Mail',
-      value: 'contact@devportfolio.pro',
+      value: 'adam.koda2995@gmail.com',
       description: 'Best for detailed inquiries and formal communications',
       color: 'primary',
-      action: 'mailto:contact@devportfolio.pro',
+      action: 'mailto:adam.kod2995@gmail.com',
       preferred: true
     },
     {
       id: 2,
       name: 'LinkedIn',
       icon: 'Linkedin',
-      value: 'linkedin.com/in/devportfolio',
+      value: 'linkedin.com/in/adam-koda',
       description: 'Professional networking and job opportunities',
       color: 'accent',
-      action: 'https://linkedin.com',
+      action: 'https://www.linkedin.com/in/adam-koda-5a8160294/',
       preferred: true
     },
     {
       id: 3,
       name: 'GitHub',
       icon: 'Github',
-      value: 'github.com/devportfolio',
+      value: 'github.com/Adamkoda2306',
       description: 'Technical discussions and code collaboration',
       color: 'primary',
-      action: 'https://github.com',
+      action: 'https://github.com/Adamkoda2306',
       preferred: false
     },
   ];

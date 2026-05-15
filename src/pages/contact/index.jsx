@@ -4,11 +4,7 @@ import Footer from '../../components/ui/Footer';
 import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import Icon from '../../components/AppIcon';
 import ContactForm from './components/ContactForm';
-import AvailabilityStatus from './components/AvailabilityStatus';
 import ContactChannels from './components/ContactChannels';
-import LocationMap from './components/LocationMap';
-import SocialLinks from './components/SocialLinks';
-import FAQSection from './components/FAQSection';
 
 const Contact = () => {
 

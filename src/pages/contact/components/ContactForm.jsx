@@ -1,94 +1,106 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 import Input from '../../../components/ui/Input';
-import Select from '../../../components/ui/Select';
 import Button from '../../../components/ui/Button';
 import Icon from '../../../components/AppIcon';
+ 
 
+const EMAILJS_SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const RECIPIENT_EMAIL     = import.meta.env.VITE_EMAILJS_RECIPENT_EMAIL_ID;
+ 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
-    message: '',
-    urgency: ''
+    message: ''
   });
-
+ 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-
-  const urgencyOptions = [
-    { value: 'low', label: 'Low Priority (1-2 weeks)' },
-    { value: 'medium', label: 'Medium Priority (3-5 days)' },
-    { value: 'high', label: 'High Priority (24-48 hours)' },
-    { value: 'urgent', label: 'Urgent (Same day)' }
-  ];
-
+  const [submitError, setSubmitError] = useState('');
+ 
   const validateForm = () => {
     const newErrors = {};
-
+ 
     if (!formData?.name?.trim()) {
       newErrors.name = 'Name is required';
     }
-
+ 
     if (!formData?.email?.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/?.test(formData?.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData?.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
-
+ 
     if (!formData?.subject?.trim()) {
       newErrors.subject = 'Subject is required';
     }
-
+ 
     if (!formData?.message?.trim()) {
       newErrors.message = 'Message is required';
     } else if (formData?.message?.trim()?.length < 20) {
       newErrors.message = 'Message must be at least 20 characters';
     }
-
-    if (!formData?.urgency) {
-      newErrors.urgency = 'Please select urgency level';
-    }
-
+ 
     setErrors(newErrors);
     return Object.keys(newErrors)?.length === 0;
   };
-
+ 
   const handleChange = (field, value) => {
     setFormData(prev => ({ ...prev, [field]: value }));
     if (errors?.[field]) {
       setErrors(prev => ({ ...prev, [field]: '' }));
     }
   };
-
+ 
   const handleSubmit = async (e) => {
     e?.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-
+    setSubmitError('');
+ 
+    if (!validateForm()) return;
+ 
     setIsSubmitting(true);
-
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 2000));
-
-    setIsSubmitting(false);
-    setSubmitSuccess(true);
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-      urgency: ''
-    });
-
-    setTimeout(() => {
-      setSubmitSuccess(false);
-    }, 5000);
+ 
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name:    formData.name,
+          from_email:   formData.email,
+          subject:      formData.subject,
+          message:      formData.message,
+          to_email:     RECIPIENT_EMAIL,        // used if your template has {{to_email}}
+          reply_to:     formData.email,
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+ 
+      setSubmitSuccess(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+ 
+      setTimeout(() => setSubmitSuccess(false), 5000);
+ 
+    } catch (error) {
+      console.error('EmailJS error:', error);
+      setSubmitError(
+        'Failed to send the message. Please try again or contact me directly.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
-
+ 
+  const handleReset = () => {
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    setErrors({});
+    setSubmitError('');
+  };
+ 
   return (
     <div className="bg-card rounded-lg border border-border p-6 md:p-8">
       <div className="flex items-center gap-3 mb-6">
@@ -96,19 +108,36 @@ const ContactForm = () => {
           <Icon name="Send" size={20} color="var(--color-primary)" />
         </div>
         <div>
-          <h2 className="text-xl md:text-2xl font-bold text-foreground font-mono-heading">Send Message</h2>
-          <p className="text-sm text-muted-foreground font-mono-code">Fill out the form below to get in touch</p>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground font-mono-heading">
+            Send Message
+          </h2>
+          <p className="text-sm text-muted-foreground font-mono-code">
+            Fill out the form below to get in touch
+          </p>
         </div>
       </div>
+ 
+      {/* Success banner */}
       {submitSuccess && (
         <div className="mb-6 p-4 bg-success/10 border border-success/20 rounded-lg flex items-start gap-3">
           <Icon name="CheckCircle" size={20} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
           <div>
             <p className="text-success font-medium font-mono-cta">Message sent successfully!</p>
-            <p className="text-sm text-success/80 mt-1">I'll get back to you based on the urgency level you selected.</p>
+            <p className="text-sm text-success/80 mt-1">
+              I'll get back to you as soon as possible.
+            </p>
           </div>
         </div>
       )}
+ 
+      {/* Error banner */}
+      {submitError && (
+        <div className="mb-6 p-4 bg-error/10 border border-error/20 rounded-lg flex items-start gap-3">
+          <Icon name="AlertCircle" size={20} color="var(--color-error)" className="flex-shrink-0 mt-0.5" />
+          <p className="text-error text-sm">{submitError}</p>
+        </div>
+      )}
+ 
       <form onSubmit={handleSubmit} className="space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <Input
@@ -120,7 +149,6 @@ const ContactForm = () => {
             error={errors?.name}
             required
           />
-
           <Input
             label="Email Address"
             type="email"
@@ -131,7 +159,7 @@ const ContactForm = () => {
             required
           />
         </div>
-
+ 
         <Input
           label="Subject"
           type="text"
@@ -141,7 +169,7 @@ const ContactForm = () => {
           error={errors?.subject}
           required
         />
-
+ 
         <div>
           <label className="block text-sm font-medium text-foreground mb-2">
             Message <span className="text-error">*</span>
@@ -161,21 +189,7 @@ const ContactForm = () => {
           )}
           <p className="mt-1 text-xs text-muted-foreground">Minimum 20 characters</p>
         </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
-
-          <Select
-            label="Urgency Level"
-            description="Expected response time"
-            placeholder="Select urgency"
-            options={urgencyOptions}
-            value={formData?.urgency}
-            onChange={(value) => handleChange('urgency', value)}
-            error={errors?.urgency}
-            required
-          />
-        </div>
-
+ 
         <div className="flex flex-col sm:flex-row gap-4 pt-4">
           <Button
             type="submit"
@@ -190,16 +204,7 @@ const ContactForm = () => {
           <Button
             type="button"
             variant="outline"
-            onClick={() => {
-              setFormData({
-                name: '',
-                email: '',
-                subject: '',
-                message: '',
-                urgency: ''
-              });
-              setErrors({});
-            }}
+            onClick={handleReset}
             iconName="RotateCcw"
             iconPosition="left"
           >
@@ -210,5 +215,5 @@ const ContactForm = () => {
     </div>
   );
 };
-
+ 
 export default ContactForm;
