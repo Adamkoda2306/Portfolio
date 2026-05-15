@@ -2,11 +2,8 @@ import Header from '../../components/ui/Header';
 import Footer from '../../components/ui/Footer';
 import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import HeroSection from './components/HeroSection';
-// import SystemStatsCard from './components/SystemStatsCard';
 import LatestCommitsCard from './components/LatestCommitsCard';
-// import CodeSnippetCard from './components/CodeSnippetCard';
 import FeaturedProjectsCarousel from './components/FeaturedProjectsCarousel';
-// import TechStackSection from './components/TechStackSection';
 import QuickAccessSection from './components/QuickAccessSection';
 
 const Homepage = () => {

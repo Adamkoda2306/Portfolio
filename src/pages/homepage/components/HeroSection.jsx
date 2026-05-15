@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import Icon from '../../../components/AppIcon';
 import Button from '../../../components/ui/Button';
-import ContributionGraph from './ContributionGraph';
 import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
@@ -10,11 +9,12 @@ const HeroSection = () => {
   const [isDeleting, setIsDeleting] = useState(false);
 
   const skills = [
-    'Backend Development',
-    'Node.js & REST APIs',
-    'Databases & Cloud Basics',
-    'Docker & Version Control',
-    'Machine Learning & Computer Vision'
+    'Backend & Microservices',
+    'IoT & Embedded Systems',
+    'Full-Stack Development',
+    'Autonomous Drone Navigation',
+    'Computer Vision (YOLOv8)',
+    'FPGA & Hardware Acceleration'
   ];
 
   useEffect(() => {
@@ -61,11 +61,11 @@ const HeroSection = () => {
           </div>
 
           <p className="max-w-3xl mx-auto text-base md:text-lg lg:text-xl text-muted-foreground leading-relaxed px-4">
-            Electronics and Communication Engineering undergraduate with an interest in 
-            backend development, cloud-based applications, and applied machine learning. 
-            Actively learning by building projects involving APIs, databases, and 
-            computer vision, and exploring how software systems integrate with real-world 
-            hardware and data.
+            B.Tech candidate in Electronics and Communication Engineering specializing in 
+            bridging the gap between high-performance software and hardware. Experienced 
+            in re-engineering microservices , building production-ready mobile apps, 
+            and developing AI-driven solutions for autonomous drones and real-time IoT 
+            infrastructure.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 md:pt-6 lg:pt-8">

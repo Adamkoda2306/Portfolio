@@ -5,28 +5,28 @@ const QuickAccessSection = () => {
   const quickLinks = [
     {
       title: "Experience Timeline",
-      description: "8+ years of backend engineering across fintech, e-commerce, and SaaS",
+      description: "Backend & Systems engineering focused on microservices and IoT integration",
       icon: "Briefcase",
       color: "var(--color-primary)",
       path: "/experience"
     },
     {
       title: "Project Portfolio",
-      description: "50+ production systems handling millions of daily transactions",
+      description: "Full-stack applications, RL simulations, and published npm utilities",
       icon: "Code",
       color: "var(--color-accent)",
       path: "/projects"
     },
     {
       title: "Achievements",
-      description: "Certifications, speaking engagements, and technical contributions",
+      description: "Hackathons & Certifications",
       icon: "Award",
       color: "var(--color-primary)",
       path: "/achievements"
     },
     {
       title: "Get In Touch",
-      description: "Open for collaboration, consulting, and full-time opportunities",
+      description: "Open for SDE internships, freelance dev, and technical collaboration",
       icon: "Mail",
       color: "var(--color-accent)",
       path: "/contact"
@@ -47,7 +47,7 @@ const QuickAccessSection = () => {
             Explore My Work
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Dive deep into technical implementations, architectural decisions, and measurable impact
+            Explore technical implementations spanning full-stack development, reinforcement learning simulations, and published open-source utilities etc..
           </p>
         </div>
 

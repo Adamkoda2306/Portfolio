@@ -1,136 +1,100 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Icon from '../../../components/AppIcon';
-import Image from '../../../components/AppImage';
 import Button from '../../../components/ui/Button';
 
 const FeaturedProjectsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // const projects = [
-  // {
-  //   id: 1,
-  //   title: "E-Commerce Microservices Platform",
-  //   description: "Architected and deployed a distributed microservices ecosystem handling 10M+ daily transactions with 99.99% uptime. Implemented event-driven architecture using Kafka for real-time inventory management and order processing.",
-  //   image: "https://img.rocket.new/generatedImages/rocket_gen_img_1e1c57163-1765389098596.png",
-  //   imageAlt: "Modern server room with rows of illuminated blue LED lights on black server racks in dark data center environment",
-  //   technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Kafka", "Docker", "Kubernetes"],
-  //   metrics: [
-  //   { label: "Response Time", value: "< 100ms", icon: "Zap" },
-  //   { label: "Daily Users", value: "2M+", icon: "Users" },
-  //   { label: "Uptime", value: "99.99%", icon: "Activity" }],
-
-  //   githubUrl: "https://github.com",
-  //   liveUrl: "https://example.com"
-  // },
-  // {
-  //   id: 2,
-  //   title: "Real-Time Analytics Engine",
-  //   description: "Built a high-performance data processing pipeline capable of ingesting and analyzing 500K events per second. Reduced query latency by 85% through strategic database optimization and caching strategies.",
-  //   image: "https://images.unsplash.com/photo-1723504513873-ee5ac3549bff",
-  //   imageAlt: "Close-up view of colorful programming code on dark computer screen showing syntax highlighting in multiple colors",
-  //   technologies: ["Node.js", "MongoDB", "ClickHouse", "RabbitMQ", "GraphQL", "AWS"],
-  //   metrics: [
-  //   { label: "Events/sec", value: "500K", icon: "TrendingUp" },
-  //   { label: "Latency", value: "< 50ms", icon: "Timer" },
-  //   { label: "Data Volume", value: "10TB+", icon: "Database" }],
-
-  //   githubUrl: "https://github.com",
-  //   liveUrl: "https://example.com"
-  // },
-  // {
-  //   id: 3,
-  //   title: "Distributed Payment Gateway",
-  //   description: "Designed and implemented a PCI-DSS compliant payment processing system handling $50M+ monthly transactions. Integrated with 15+ payment providers with automatic failover and retry mechanisms.",
-  //   image: "https://images.unsplash.com/photo-1649682892309-e10e0b7cd40b",
-  //   imageAlt: "Abstract digital network visualization with glowing blue and orange connection nodes on dark background representing data flow",
-  //   technologies: ["Go", "gRPC", "PostgreSQL", "Vault", "Terraform", "GCP"],
-  //   metrics: [
-  //   { label: "Transactions", value: "$50M/mo", icon: "DollarSign" },
-  //   { label: "Success Rate", value: "99.8%", icon: "CheckCircle" },
-  //   { label: "Providers", value: "15+", icon: "Link" }],
-
-  //   githubUrl: "https://github.com",
-  //   liveUrl: "https://example.com"
-  // }];
-
   const projects = [
   {
     id: 1,
-    title: "AgriVision – Crop Recommendation & Disease Detection",
+    title: "Autonomous Drone Navigation (RL)",
     description:
-      "A mobile and backend-based system developed for agricultural assistance, providing crop, fertilizer, weather, and disease recommendations. Integrated a CNN-based plant disease detection module and Flask APIs to support real-time predictions. Shortlisted as a finalist in the Abhisarga AGRIAI competition.",
-    image:
-      "https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
-    imageAlt:
-      "Green agricultural field representing smart farming and crop monitoring",
+      "Engineered a custom OpenAI Gym-compatible environment in AirSim for autonomous UAV navigation. Implemented Proximal Policy Optimization (PPO) and Soft Actor-Critic (SAC) models, utilizing LiDAR and telemetry data for real-time obstacle avoidance and goal-reaching.",
+    image: "https://images.unsplash.com/photo-1508614589041-895b88991e3e",
+    imageAlt: "Autonomous drone navigating a complex environment",
+    technologies: [
+      "Python",
+      "Reinforcement Learning",
+      "AirSim",
+      "PyTorch",
+      "Stable Baselines3"
+    ],
+    metrics: [
+      { label: "Control", value: "Continuous", icon: "Settings" },
+      { label: "Algorithms", value: "PPO/SAC", icon: "Cpu" },
+      { label: "Environment", value: "Custom Gym", icon: "Layers" }
+    ],
+    githubUrl: "http://github.com/Adamkoda2306/RL-Autonoums-Drone", 
+    liveUrl: "http://github.com/Adamkoda2306/RL-Autonoums-Drone"
+  },
+  {
+    id: 2,
+    title: "AgriVision – AI Based Crop Detection & Prediction",
+    description:
+      "Architected a mobile ecosystem for precision agriculture featuring real-time plant disease detection using a custom CNN. Integrated Flask APIs with a multi-language Flutter frontend to provide localized weather insights and crop recommendations. Recognized as an Abhisarga AGRIAI Finalist.",
+    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854",
+    imageAlt: "Smart farming dashboard with disease detection metrics",
     technologies: [
       "Python",
       "Flask",
       "CNN",
-      "OpenCV",
-      "Machine Learning",
-      "Flutter"
+      "TensorFlow",
+      "Flutter",
+      "OpenCV"
     ],
     metrics: [
       { label: "Accuracy", value: "80%+", icon: "TrendingUp" },
-      { label: "Platform", value: "Mobile + API", icon: "Smartphone" },
-      { label: "Achievement", value: "Finalist", icon: "Award" }
+      { label: "Deployment", value: "Flask", icon: "Cloud" },
+      { label: "Recognition", value: "Finalist", icon: "Award" }
     ],
     githubUrl: "https://github.com/sujithvaishnav/AgriVision",
     liveUrl: "https://github.com/sujithvaishnav/AgriVision"
   },
-
   {
-    id: 2,
-    title: "Logsave-hub – Node.js Logging Utility (npm)",
+    id: 3,
+    title: "Logsave-hub (npm Package)",
     description:
-      "A reusable Node.js logging utility designed to persist application logs with configurable logging modes. Published as an npm package with proper documentation, enabling easy integration into Node.js projects for structured and persistent logging.",
-    image:
-      "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
-    imageAlt:
-      "Code editor displaying JavaScript logs and backend development workflow",
+      "Authored and published a production-grade Node.js logging utility designed to streamline application monitoring. The package features configurable persistence modes, structured output formatting, and a focus on reducing setup time for microservices. Successfully achieved 85+ downloads within its first month of release due to comprehensive documentation and ease of integration.",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
+    imageAlt: "Console log output representing the logging utility in action",
     technologies: [
       "Node.js",
-      "JavaScript",
+      "TypeScript",
       "npm",
-      "Git",
-      "Logging Utilities"
+      "FileSystem API",
+      "Winston/Morgan"
     ],
     metrics: [
-      { label: "Package Type", value: "npm", icon: "Package" },
-      { label: "Use Case", value: "Logging", icon: "FileText" },
+      { label: "Usage", value: "85+ DLs", icon: "Download" },
+      { label: "Registry", value: "npm", icon: "Package" },
       { label: "Status", value: "Published", icon: "CheckCircle" }
     ],
     githubUrl: "https://github.com/Adamkoda2306/logsave-hub",
     liveUrl: "https://www.npmjs.com/package/logsave-hub"
   },
-
   {
-    id: 3,
-    title: "IoT Water Management System",
+    id: 4,
+    title: "IoT Smart Water Management",
     description:
-      "An IoT-based real-time water level monitoring and alert system built using microcontrollers and sensors. Developed Flutter and web interfaces for live monitoring and safety alerts. Awarded Runner-Up in the Utkrista innovation event.",
-    image:
-      "https://images.unsplash.com/photo-1581090700227-1e37b190418e",
-    imageAlt:
-      "IoT water level monitoring setup with sensors and microcontroller",
+      "Designed an ESP32-based real-time monitoring system utilizing ultrasonic time-of-flight measurement and deterministic safety logic. The system bridges physical hardware with cloud infrastructure, transmitting data to a multi-platform Flutter dashboard for remote monitoring and automated threshold alerts. Secured the Runner-Up award at the Utkrista 2024 innovation event.",
+    image: "https://images.unsplash.com/photo-1581090700227-1e37b190418e",
+    imageAlt: "Sensors measuring water levels in a controlled environment",
     technologies: [
       "ESP32",
-      "Arduino",
+      "Embedded C",
+      "Firebase",
       "Flutter",
-      "IoT Sensors",
-      "Cloud Logging"
+      "IoT Protocols"
     ],
     metrics: [
-      { label: "Domain", value: "IoT", icon: "Cpu" },
-      { label: "Monitoring", value: "Real-time", icon: "Activity" },
-      { label: "Achievement", value: "Runner-Up", icon: "Award" }
+      { label: "Response", value: "Real-time", icon: "Activity" },
+      { label: "Award", value: "Runner-Up", icon: "Award" },
+      { label: "Stack", value: "IoT/Cloud", icon: "Cpu" }
     ],
-    githubUrl:
-      "https://github.com/Adamkoda2306/Utkrista_Event_IOT_Water_Management",
-    liveUrl:
-      "https://adamkoda2306.github.io/Utkrista_Event_IOT_Water_Management/"
+    githubUrl: "https://github.com/Adamkoda2306/Utkrista_Event_IOT_Water_Management",
+    liveUrl: "https://adamkoda2306.github.io/Utkrista_Event_IOT_Water_Management/"
   }
 ];
 
