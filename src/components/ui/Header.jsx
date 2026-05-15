@@ -30,7 +30,7 @@ const Header = () => {
         <div className="header-content">
           <Link to="/homepage" className="header-logo">
             <div className="header-logo-icon">
-              <Icon name="Terminal" size={20} color="var(--color-primary)" />
+              {/* <Icon name="Terminal" size={30} color="var(--color-primary)" /> */}
             </div>
             {/* <span>Koda Adam</span> */}
           </Link>
