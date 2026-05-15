@@ -10,11 +10,6 @@ const Contact = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact - DevPortfolio Pro | Get in Touch</title>
-        <meta name="description" content="Connect with a backend development expert. Multiple communication channels, clear response times, and professional networking opportunities." />
-        <meta name="keywords" content="contact backend developer, hire backend engineer, technical consultation, software development contact" />
-      </Helmet>
       <div className="min-h-screen bg-background">
         <Header />
 
