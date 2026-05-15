@@ -6,103 +6,79 @@ import Breadcrumbs from '../../components/ui/Breadcrumbs';
 import Icon from '../../components/AppIcon';
 import AchievementCard from './components/AchievementCard';
 import ContributionGraph from './components/ContributionGraph';
-import MetricCard from './components/MetricCard';
-import TimelineSection from './components/TimelineSection';
 import CategoryFilter from './components/CategoryFilter';
 
 const Achievements = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
 
   const achievements = [
-    {
-      id: 1,
-      type: 'certification',
-      title: 'AWS Certified Solutions Architect - Professional',
-      description: 'Advanced certification demonstrating expertise in designing distributed systems on AWS with focus on scalability, security, and cost optimization.',
-      date: '2025-11-15',
-      organization: 'Amazon Web Services',
-      verified: true,
-      verificationUrl: 'https://aws.amazon.com/verification/AWSCERT123456',
-      metric: 'Valid until 2028'
-    },
-    {
-      id: 2,
-      type: 'hackathon',
-      title: 'Keynote: Microservices at Scale',
-      description: 'Delivered keynote presentation on building resilient microservices architecture handling 100M+ daily requests with zero-downtime deployments.',
-      date: '2025-09-20',
-      organization: 'DevOps Summit 2025',
-      verified: true,
-      verificationUrl: 'https://devopssummit.com/speakers/2025',
-      metric: '500+ attendees'
-    },
-    {
-      id: 3,
-      type: 'opensource',
-      title: 'Core Contributor - FastAPI Framework',
-      description: 'Contributed performance optimizations reducing response time by 40% and implemented async database connection pooling used by 50K+ projects.',
-      date: '2025-08-10',
-      organization: 'FastAPI',
-      verified: true,
-      verificationUrl: 'https://github.com/tiangolo/fastapi/contributors',
-      metric: '2.5K+ commits'
-    },
-    {
-      id: 4,
-      type: 'certification',
-      title: 'Google Cloud Professional Cloud Architect',
-      description: 'Certification validating expertise in designing, developing, and managing robust, secure, scalable, and dynamic solutions on Google Cloud Platform.',
-      date: '2025-07-05',
-      organization: 'Google Cloud',
-      verified: true,
-      verificationUrl: 'https://cloud.google.com/certification/verify/GCPCERT789012',
-      metric: 'Valid until 2027'
-    },
-    {
-      id: 5,
-      type: 'certification',
-      title: 'Kubernetes Certified Application Developer (CKAD)',
-      description: 'Certification demonstrating proficiency in designing, building, and deploying cloud-native applications on Kubernetes.',
-      date: '2025-03-30',
-      organization: 'Cloud Native Computing Foundation',
-      verified: true,
-      verificationUrl: 'https://cncf.io/certification/verify/CKAD345678',
-      metric: 'Valid until 2027'
-    },
-    {
-      id: 6,
-      type: 'opensource',
-      title: 'Maintainer - Redis Performance Tools',
-      description: 'Created and maintain open source Redis monitoring and optimization toolkit used by Fortune 500 companies for production systems.',
-      date: '2025-02-14',
-      organization: 'GitHub',
-      verified: true,
-      verificationUrl: 'https://github.com/redis-perf-tools',
-      metric: '15K+ stars'
-    },
-    {
-      id: 7,
-      type: 'hackathon',
-      title: 'Stack Overflow Top 1% Contributor',
-      description: 'Achieved top 1% ranking on Stack Overflow with 50K+ reputation points by providing high-quality answers to backend development questions.',
-      date: '2025-01-20',
-      organization: 'Stack Overflow',
-      verified: true,
-      verificationUrl: 'https://stackoverflow.com/users/12345678',
-      metric: '50K+ reputation'
-    },
-    {
-      id: 8,
-      type: 'hackathon',
-      title: 'eBook: Mastering Distributed Systems',
-      description: 'Authored comprehensive technical eBook covering distributed system design patterns, consistency models, and real-world implementation strategies.',
-      date: '2024-11-15',
-      organization: 'O\'Reilly Media',
-      verified: true,
-      verificationUrl: 'https://oreilly.com/library/view/mastering-distributed',
-      metric: '5K+ downloads'
-    }
-  ];
+  {
+    id: 1,
+    type: 'certification',
+    title: 'Certificate Program 2.0: IoT & Digital Twin',
+    description: 'Specialized program covering the architecture of Internet of Things, Digital Twin synchronization, and Intelligent & Autonomous Systems.',
+    date: '2025-05-15',
+    organization: 'Indian Institute of Information Technology Sricity',
+    verified: true,
+    verificationUrl: 'https://drive.google.com/file/d/1kt-KQUmtE-iwyUMK5a-JtDrGSYE3MqKV/view?usp=sharing',
+    metric: 'IoT, IAS & Digital Twin'
+  },
+  {
+    id: 2,
+    type: 'hackathon',
+    title: 'AgriAI 36-Hour Hackathon - Abhisarga 2025',
+    description: 'Developed "AgriVision," a multi-language mobile ecosystem using Flutter and Flask to deliver real-time crop pathology and weather insights.',
+    date: '2025-03-10',
+    organization: 'Indian Institute of Information Technology Sricity',
+    verified: true,
+    verificationUrl: 'https://drive.google.com/file/d/1fpOzEkxxOW9u_UAvmPRnYkmUTZ7Os75I/view?usp=sharing',
+    metric: 'Finalist'
+  },
+  {
+    id: 3,
+    type: 'hackathon',
+    title: 'ElectroForge Hackathon - Utkrista 2024',
+    description: 'Awarded for designing an ESP32-based IoT Water Management system featuring real-time sensor integration and threshold-based safety logic.',
+    date: '2024-11-20',
+    organization: 'Indian Institute of Information Technology Sricity',
+    verified: true,
+    verificationUrl: 'https://drive.google.com/file/d/11_pOzqmNsglx6QU77Q_eWh-3mIK_2Cly/view?usp=sharing',
+    metric: 'Runner-Up'
+  },
+  {
+    id: 4,
+    type: 'hackathon',
+    title: 'Bit-N-Build Hackathon Participation',
+    description: 'Participated in a global coding competition, developing full-stack solutions under intensive time constraints.',
+    date: '2024-10-15',
+    organization: 'Google Developer Groups (Unstop)',
+    verified: true,
+    verificationUrl: 'https://unstop.com/certificate-verification/1bb7300b-b74b-4df4-b02d-0886f9d41969',
+    metric: 'Global Event'
+  },
+  {
+  id: 5,
+  type: 'hackathon',
+  title: 'Flipkart GRiD 6.0 - Technical Participation',
+  description: 'Participated in India\'s premier engineering challenge, solving complex problems related to e-commerce workflows, supply chain logic, and large-scale digital transactions.',
+  date: '2024-08-05',
+  organization: 'Flipkart',
+  verified: true,
+  verificationUrl: 'https://unstop.com/certificate-verification/77143486-6dab-480b-b356-1f16e018a6d0',
+  metric: 'National Level'
+},
+  {
+    id: 6,
+    type: 'opensource',
+    title: 'Author: logsave-hub (npm Package)',
+    description: 'Authored and published a production-ready Node.js logging utility, achieving 85+ downloads in its debut month.',
+    date: '2026-01-10',
+    organization: 'npm Registry',
+    verified: true,
+    verificationUrl: 'https://www.npmjs.com/package/logsave-hub',
+    metric: '85+ Downloads'
+  }
+];
 
   const contributionData = Array.from({ length: 365 }, (_, i) => {
     const date = new Date();
@@ -142,7 +118,7 @@ const Achievements = () => {
               </div>
               <div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground font-mono-heading">
-                  Achievement Vault
+                  Achievement's
                 </h1>
                 <p className="text-muted-foreground text-sm md:text-base mt-1">
                   Verified credentials and technical milestones
