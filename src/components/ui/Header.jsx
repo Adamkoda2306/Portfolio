@@ -32,7 +32,7 @@ const Header = () => {
             <div className="header-logo-icon">
               <Icon name="Terminal" size={20} color="var(--color-primary)" />
             </div>
-            <span>DevPortfolio Pro</span>
+            {/* <span>Koda Adam</span> */}
           </Link>
 
           <nav className="nav-desktop">
