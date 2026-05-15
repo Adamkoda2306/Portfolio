@@ -45,22 +45,103 @@ const HeroSection = () => {
     <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-background via-background/95 to-background/90"></div>
-      
+ 
       {/* Grid pattern overlay */}
       <div className="absolute inset-0 grid-pattern opacity-40"></div>
  
       {/* Main content container */}
-      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-6 lg:px-8 py-12 md:py-16 lg:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
-          
-          {/* LEFT SIDE - Image: full bleed, no border, fades into background */}
-          <div className="order-2 lg:order-1 relative w-full h-full min-h-[400px] lg:min-h-[600px] flex items-center">
-            {/* Loading skeleton */}
+      <div className="relative z-10 max-w-7xl mx-auto w-full px-4 md:px-6 lg:px-8 py-8 md:py-16 lg:py-20">
+ 
+        {/* ── MOBILE LAYOUT (< lg) ── */}
+        <div className="flex flex-col gap-6 lg:hidden pb-16">
+ 
+          {/* Image — no border, no bg, transparent, taller */}
+          <div className="mx-auto w-full max-w-[320px] sm:max-w-[380px]">
+            <div className="relative overflow-hidden rounded-2xl bg-transparent">
+              {!imageLoaded && (
+                <div className="w-full h-64 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse rounded-2xl"></div>
+              )}
+              <img
+                src="/assets/hero-image.png"
+                alt="Koda Adam - Electronics & Communication Engineering"
+                className={`w-full h-74 object-cover object-top transition-all duration-700 ${
+                  imageLoaded ? 'opacity-100' : 'opacity-0 absolute inset-0'
+                }`}
+                onLoad={() => setImageLoaded(true)}
+              />
+            </div>
+          </div>
+ 
+          {/* Text content */}
+          <div className="space-y-4 text-center">
+            <div className="space-y-1">
+              <h1 className="text-4xl sm:text-5xl font-bold font-mono-heading text-foreground leading-tight">
+                Koda Adam
+              </h1>
+              <p className="text-base sm:text-lg text-primary font-semibold font-mono-code">
+                B.Tech in Electronics & Communication Engineering
+              </p>
+            </div>
+ 
+            {/* Typing animation */}
+            <div className="h-10 flex items-center justify-center">
+              <div className="text-base sm:text-lg font-mono-code text-accent font-semibold">
+                <span className="opacity-60">{'> '}</span>
+                <span className="inline-block">{typedText}</span>
+                <span className="inline-block w-0.5 h-5 bg-accent ml-1 animate-pulse align-middle"></span>
+              </div>
+            </div>
+ 
+            {/* Description */}
+            <p className="text-sm sm:text-base text-muted-foreground leading-relaxed max-w-sm mx-auto">
+              Enthusiastic B.Tech candidate specializing in the synergy between hardware and software.
+              I bridge the gap from FPGA-based acceleration to scalable microservices and cloud-native backends.
+              With hands-on experience in autonomous drone navigation and computer vision,
+              I architect intelligent, high-performance systems at the intersection of IoT, robotics, and distributed computing.
+            </p>
+ 
+            {/* CTA Buttons — always side by side, taller */}
+            <div className="flex flex-row items-center justify-center gap-3 pt-4">
+              <Link to="/projects" className="flex-1 max-w-[160px]">
+                <Button
+                  variant="default"
+                  size="lg"
+                  iconName="Code"
+                  iconPosition="left"
+                  className="w-full py-3"
+                >
+                  View Projects
+                </Button>
+              </Link>
+              <a href="/assets/resume.pdf" download className="flex-1 max-w-[160px]">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  iconName="Download"
+                  iconPosition="left"
+                  className="w-full py-3"
+                >
+                  Resume
+                </Button>
+              </a>
+            </div>
+ 
+            {/* Scroll indicator — after buttons on mobile */}
+            <div className="flex flex-col items-center gap-1 pt-6 animate-bounce">
+              <p className="text-xs text-muted-foreground uppercase tracking-wider">Scroll</p>
+              <Icon name="ChevronDown" size={20} className="text-muted-foreground" />
+            </div>
+          </div>
+        </div>
+ 
+        {/* ── DESKTOP LAYOUT (>= lg) — unchanged from original ── */}
+        <div className="hidden lg:grid grid-cols-2 gap-12 xl:gap-16 items-center">
+ 
+          {/* LEFT — full bleed image */}
+          <div className="relative w-full h-full min-h-[600px] flex items-center">
             {!imageLoaded && (
               <div className="absolute inset-0 bg-gradient-to-r from-muted via-muted/50 to-muted animate-pulse rounded-xl"></div>
             )}
- 
-            {/* Main image — no border, fills the left column */}
             <img
               src="/assets/hero-image.png"
               alt="Koda Adam - Electronics & Communication Engineering"
@@ -70,8 +151,7 @@ const HeroSection = () => {
               style={{ minHeight: '450px' }}
               onLoad={() => setImageLoaded(true)}
             />
- 
-            {/* Extra right-side fade so image bleeds seamlessly into the text column */}
+            {/* Right-side fade into text column */}
             <div
               className="absolute inset-y-0 right-0 w-1/3 pointer-events-none"
               style={{
@@ -80,10 +160,8 @@ const HeroSection = () => {
             ></div>
           </div>
  
-          {/* RIGHT SIDE - Content */}
-          <div className="order-1 lg:order-2 space-y-6 md:space-y-8 lg:space-y-10 max-w-2xl">
-            
-            {/* Name and title */}
+          {/* RIGHT — content */}
+          <div className="space-y-8 lg:space-y-10 max-w-2xl">
             <div className="space-y-3 md:space-y-4">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-mono-heading text-foreground leading-tight">
                 Koda Adam
@@ -93,7 +171,6 @@ const HeroSection = () => {
               </p>
             </div>
  
-            {/* Typing animation - Skills */}
             <div className="relative">
               <div className="h-14 md:h-16 lg:h-20 flex items-center">
                 <div className="text-lg md:text-xl lg:text-2xl font-mono-code text-accent font-semibold">
@@ -104,21 +181,19 @@ const HeroSection = () => {
               </div>
             </div>
  
-            {/* Description */}
-            <p className="text-base md:text-lg lg:text-lg text-muted-foreground leading-relaxed max-w-xl">
+            <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
               Enthusiastic B.Tech candidate specializing in the synergy between hardware and software.
               I bridge the gap from FPGA-based acceleration to scalable microservices and cloud-native backends.
-              With hands-on experience in autonomous drone navigation and computer vision, 
+              With hands-on experience in autonomous drone navigation and computer vision,
               I architect intelligent, high-performance systems at the intersection of IoT, robotics, and distributed computing.
             </p>
  
-            {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row items-start gap-4 pt-4 md:pt-6">
               <Link to="/projects">
-                <Button 
-                  variant="default" 
-                  size="lg" 
-                  iconName="Code" 
+                <Button
+                  variant="default"
+                  size="lg"
+                  iconName="Code"
                   iconPosition="left"
                   className="w-full sm:w-auto"
                 >
@@ -126,10 +201,10 @@ const HeroSection = () => {
                 </Button>
               </Link>
               <a href="/assets/resume.pdf" download className="w-full sm:w-auto">
-                <Button 
-                  variant="outline" 
-                  size="lg" 
-                  iconName="Download" 
+                <Button
+                  variant="outline"
+                  size="lg"
+                  iconName="Download"
                   iconPosition="left"
                   className="w-full sm:w-auto"
                 >
@@ -137,13 +212,12 @@ const HeroSection = () => {
                 </Button>
               </a>
             </div>
- 
           </div>
         </div>
       </div>
  
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
+      {/* Scroll indicator — desktop only (mobile has its own inline version after buttons) */}
+      <div className="hidden lg:flex absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce z-20">
         <div className="flex flex-col items-center gap-2">
           <p className="text-xs text-muted-foreground uppercase tracking-wider">Scroll</p>
           <Icon name="ChevronDown" size={24} className="text-muted-foreground" />
