@@ -10,8 +10,6 @@ const ProjectDetailsModal = ({ project, onClose }) => {
 
   const tabs = [
     { id: 'overview', label: 'Overview', icon: 'FileText' },
-    { id: 'architecture', label: 'Architecture', icon: 'Network' },
-    { id: 'performance', label: 'Performance', icon: 'Activity' }
   ];
 
   return (
@@ -57,7 +55,10 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                 <Image
                   src={project?.image}
                   alt={project?.imageAlt}
-                  className="w-full h-full object-cover"
+                  width={1920}
+                  height={1080}
+                  className="w-full h-full object-contain"
+                  priority
                 />
               </div>
 
@@ -153,109 +154,6 @@ const ProjectDetailsModal = ({ project, onClose }) => {
                     Live Demo
                   </Button>
                 )}
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'architecture' && (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground font-mono-heading mb-3">
-                  System Architecture
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
-                  {project?.architectureDescription}
-                </p>
-              </div>
-
-              <div className="code-block">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-muted-foreground font-mono-cta uppercase tracking-wider">
-                    Database Schema
-                  </span>
-                  <Icon name="Database" size={20} color="var(--color-accent)" />
-                </div>
-                <pre className="text-xs md:text-sm text-accent font-mono-code overflow-x-auto">
-                  {project?.databaseSchema}
-                </pre>
-              </div>
-
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground font-mono-heading mb-3">
-                  API Endpoints
-                </h3>
-                <div className="space-y-3">
-                  {project?.apiEndpoints?.map((endpoint, index) => (
-                    <div key={index} className="code-block">
-                      <div className="flex items-center gap-3 mb-2">
-                        <span className="px-2 py-1 bg-primary/10 text-primary text-xs font-mono-code rounded">
-                          {endpoint?.method}
-                        </span>
-                        <code className="text-sm text-foreground font-mono-code">
-                          {endpoint?.path}
-                        </code>
-                      </div>
-                      <p className="text-xs md:text-sm text-muted-foreground">
-                        {endpoint?.description}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          )}
-
-          {activeTab === 'performance' && (
-            <div className="space-y-6">
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground font-mono-heading mb-3">
-                  Performance Metrics
-                </h3>
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed mb-4">
-                  Comprehensive performance analysis and optimization results achieved through systematic improvements.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project?.metrics?.map((metric, index) => (
-                  <div key={index} className="metric-card">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Icon name="Activity" size={20} color="var(--color-primary)" />
-                      <span className="text-sm text-muted-foreground font-mono-cta">
-                        {metric?.label}
-                      </span>
-                    </div>
-                    <div className="text-3xl md:text-4xl font-bold text-primary font-mono-heading">
-                      {metric?.value}
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div>
-                <h3 className="text-lg md:text-xl font-bold text-foreground font-mono-heading mb-3">
-                  Scalability Achievements
-                </h3>
-                <ul className="space-y-3">
-                  {project?.scalabilityStory?.map((story, index) => (
-                    <li key={index} className="flex items-start gap-3 text-sm md:text-base text-foreground">
-                      <Icon name="TrendingUp" size={20} color="var(--color-success)" className="flex-shrink-0 mt-0.5" />
-                      <span>{story}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="code-block">
-                <div className="flex items-center justify-between mb-3">
-                  <span className="text-sm text-muted-foreground font-mono-cta uppercase tracking-wider">
-                    System Uptime
-                  </span>
-                  <Icon name="CheckCircle2" size={20} color="var(--color-success)" />
-                </div>
-                <div className="text-4xl md:text-5xl font-bold text-success font-mono-heading">
-                  {project?.uptime}
-                </div>
               </div>
             </div>
           )}

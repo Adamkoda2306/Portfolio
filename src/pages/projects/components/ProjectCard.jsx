@@ -113,15 +113,6 @@ const ProjectCard = ({ project, onViewDetails }) => {
 
         <div className="flex flex-col sm:flex-row gap-3">
           <Button
-            variant="outline"
-            fullWidth
-            iconName={isExpanded ? "ChevronUp" : "ChevronDown"}
-            iconPosition="right"
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            {isExpanded ? 'Show Less' : 'Show More'}
-          </Button>
-          <Button
             variant="default"
             fullWidth
             iconName="ExternalLink"
