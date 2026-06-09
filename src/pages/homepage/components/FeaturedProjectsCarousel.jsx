@@ -26,8 +26,8 @@ const FeaturedProjectsCarousel = () => {
       { label: "Algorithms", value: "PPO/SAC", icon: "Cpu" },
       { label: "Environment", value: "Custom Gym", icon: "Layers" }
     ],
-    githubUrl: "http://github.com/Adamkoda2306/RL-Autonoums-Drone", 
-    liveUrl: "http://github.com/Adamkoda2306/RL-Autonoums-Drone"
+    githubUrl: "https://github.com/Adamkoda2306/Autonomous-UAV-Navigation-via-Spatio-Visual-Reinforcement-Learning", 
+    liveUrl: "https://github.com/Adamkoda2306/Autonomous-UAV-Navigation-via-Spatio-Visual-Reinforcement-Learning"
   },
   {
     id: 2,
@@ -49,8 +49,8 @@ const FeaturedProjectsCarousel = () => {
       { label: "Deployment", value: "Flask", icon: "Cloud" },
       { label: "Recognition", value: "Finalist", icon: "Award" }
     ],
-    githubUrl: "https://github.com/sujithvaishnav/AgriVision",
-    liveUrl: "https://github.com/sujithvaishnav/AgriVision"
+    githubUrl: "https://github.com/Adamkoda2306/AgriVision",
+    liveUrl: "https://agrivision-livid.vercel.app/"
   },
   {
     id: 3,
