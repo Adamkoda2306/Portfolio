@@ -245,34 +245,42 @@ const Projects = () => {
     },
     {
       id: 6,
-      title: "Logsave-hub : Node.js Logging Utility Package",
-      description: "Developed and published a reusable Node.js logging utility package for structured log management, error tracking, and scalable application monitoring.",
-      fullDescription: "Built and published LogSave Hub, a lightweight and developer-friendly logging utility package for Node.js applications. Designed to simplify application monitoring by providing structured logging, error handling, and customizable log storage features. Implemented clean and modular architecture enabling easy integration into backend projects. Optimized logging workflows for debugging and production monitoring while maintaining minimal performance overhead. Published the package on npm for public usage and distribution.",
+      title: "LogSave Hub : Real-Time Logging & Monitoring Platform",
+      description: "Built and published a Node.js logging and monitoring package featuring structured logging, real-time dashboards, live log streaming, retention management, and application observability tools.",
+      fullDescription: "Designed and published LogSave Hub, a comprehensive logging and monitoring solution for Node.js applications. Developed a modular logging architecture supporting structured logs, multiple log levels, automatic file rotation, and retention management. Built an interactive web dashboard with real-time log streaming using Socket.IO, advanced filtering, search capabilities, historical log exploration, and live monitoring features. Implemented automated log cleanup, performance-optimized file handling, and seamless Express integration, enabling developers to monitor and debug applications efficiently in both development and production environments. Published the package on npm for public distribution and easy adoption across backend projects.",
       image: "/assets/projects/thumbnail-logsave-hub.png",
-      imageAlt: "LogSave Hub npm package dashboard and Node.js logging utility visualization with structured logs and monitoring interface",
+      imageAlt: "LogSave Hub real-time monitoring dashboard displaying live logs, filtering controls, log analytics, and application observability features",
       status: "Published",
       teamSize: "1",
-      duration: "1 week",
-      performanceImprovement: "+30%",
+      duration: "2 weeks",
+      performanceImprovement: "+40%",
       technologies: [
         "Node.js",
-        "Typescript",
+        "TypeScript",
+        "Socket.IO",
+        "Express.js",
         "Winston",
         "NPM",
+        "WebSockets",
         "Logging Systems",
-        "Backend Utilities",
-        "File Handling"
+        "File Handling",
+        "Real-Time Monitoring"
       ],
       achievements: [
-        "Successfully published package on npm for public usage",
-        "Implemented structured logging and customizable log management",
-        "Designed modular architecture for easy integration into projects",
-        "Optimized logging performance with minimal runtime overhead",
-        "Improved debugging and monitoring workflows for backend applications"
+        "Published LogSave Hub as a reusable npm package",
+        "Built a real-time web dashboard with live log streaming",
+        "Implemented Socket.IO-based monitoring for instant log updates",
+        "Developed advanced log filtering, search, and historical log viewing using web dashboard",
+        "Added automatic log retention and cleanup management",
+        "Created modular Express integration for easy project adoption",
+        "Optimized log processing and storage with minimal runtime overhead",
+        "Enhanced debugging and production monitoring workflows"
       ],
       metrics: [
         { label: "Package Manager", value: "NPM" },
-        { label: "Project Type", value: "Node.js Utility" },
+        { label: "Project Type", value: "Node.js Monitoring Platform" },
+        { label: "Dashboard", value: "Real-Time" },
+        { label: "Log Streaming", value: "Socket.IO" },
         { label: "Architecture", value: "Modular" },
         { label: "Deployment Status", value: "Published" }
       ],
@@ -350,7 +358,7 @@ const Projects = () => {
       githubUrl: "https://github.com/Adamkoda2306/CPP-Library-Management-System",
       liveDemo: "https://github.com/Adamkoda2306/CPP-Library-Management-System/releases/tag/v1.0"
     },
-  {
+    {
       id: 9,
       title: "Absentees - Smart Attendance Tracking App",
       description: "Developed and deployed a modern attendance tracking application used by 80+ active members for managing attendance records and improving attendance monitoring workflows.",

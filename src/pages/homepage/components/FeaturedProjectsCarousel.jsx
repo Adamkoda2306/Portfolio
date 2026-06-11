@@ -55,22 +55,25 @@ const FeaturedProjectsCarousel = () => {
   {
     id: 3,
     title: "Logsave-hub (npm Package)",
-    description:
-      "Authored and published a production-grade Node.js logging utility designed to streamline application monitoring. The package features configurable persistence modes, structured output formatting, and a focus on reducing setup time for microservices. Successfully achieved 85+ downloads within its first month of release due to comprehensive documentation and ease of integration.",
+    description: "Developed and published a real-time logging and monitoring solution for Node.js applications featuring structured logging, live dashboard monitoring, Socket.IO log streaming, retention management, and advanced log analytics.",
     image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c",
     imageAlt: "Console log output representing the logging utility in action",
     technologies: [
-      "Node.js",
-      "TypeScript",
-      "npm",
-      "FileSystem API",
-      "Winston/Morgan"
-    ],
+    "Node.js",
+    "TypeScript",
+    "Socket.IO",
+    "Express.js",
+    "Winston",
+    "npm",
+    "WebSockets",
+    "File System API",
+    "Logging Systems"
+  ],
     metrics: [
-      { label: "Usage", value: "85+ DLs", icon: "Download" },
-      { label: "Registry", value: "npm", icon: "Package" },
-      { label: "Status", value: "Published", icon: "CheckCircle" }
-    ],
+    { label: "Registry", value: "npm", icon: "Package" },
+    { label: "Dashboard", value: "Real-Time", icon: "Monitor" },
+    { label: "Status", value: "Published", icon: "CheckCircle" }
+  ],
     githubUrl: "https://github.com/Adamkoda2306/logsave-hub",
     liveUrl: "https://www.npmjs.com/package/logsave-hub"
   },
